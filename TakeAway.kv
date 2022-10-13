@@ -1,0 +1,181 @@
+<CardItem@MDCard>:
+    orientation:'vertical'
+    size_hint_x:.5
+    elevation:15
+    size_hint_y:None
+    md_bg_color:get_color_from_hex("#faf0e6")
+    height:dp(220)
+    padding:dp(25)
+    spacing:dp(15)
+    radius:[25]
+
+
+MDScreen:
+    name: 'TakeAway'
+
+    MDToolbar:
+        id:toolbar2
+        title:'Nos Pizzas A Emporter'
+        #anchor_title: 'center'
+        elevation: 10
+        pos_hint: {"top": 1}
+        right_action_items: [["cart", app.callback]]
+        #on_action_button: app.callback1(self.icon)
+        md_bg_color: get_color_from_hex("#faf0e6")
+        specific_text_color: get_color_from_hex("#4a4939")
+        left_action_items: [['arrow-left-circle', app.go_to_nav_drawer]]
+        #on_action_button: app.callback2(self.icon)
+
+
+    MDBoxLayout:
+        height: root.height - toolbar2.height - dp(20)
+        y: root.height - self.height- toolbar2.height - dp(20)
+        ScrollView:
+            MDGridLayout:
+                cols:2
+                padding:dp(20)
+                spacing:dp(20)
+                adaptive_height:True
+
+
+                CardItem:
+                    id: first_card
+                    MDBoxLayout:
+                        size_hint_y:None
+                        height:dp(90)
+                        Image:
+                            source:'Image2/Peperonata.jpg'
+                            pos_hint:{"x":.5,"y":0}
+                    MDBoxLayout:
+                        size_hint_y:None
+                        height:dp(25)
+                        MDLabel:
+                            text:'Peperonata'
+                            font_style:"Body2"
+                            pos_hint:{"x":.5,"y":.5}
+                    MDBoxLayout:
+                        spacing:dp(8)
+                        MDRoundFlatIconButton:
+                            id: pizza1
+                            icon:"cart"
+                            text:"Add to cart"
+                            on_press:root.manager.current='Buy Now'
+
+
+                CardItem:
+                    MDBoxLayout:
+                        size_hint_y:None
+                        height:dp(90)
+                        Image:
+                            source:'Image2/seafood-pizza.jpg'
+                    MDBoxLayout:
+                        size_hint_y:None
+                        height:dp(25)
+                        MDLabel:
+                            text:'SeaFood'
+                            font_style:"Body2"
+                            pos_hint:{"x":.5,"y":.5}
+                    MDBoxLayout:
+                        spacing:dp(8)
+                        MDRoundFlatIconButton:
+                            id: pizza2
+                            icon:"cart"
+                            text:"Add to cart"
+                            on_release:app.add_to_cart
+
+                CardItem:
+                    MDBoxLayout:
+                        size_hint_y:None
+                        height:dp(90)
+                        Image:
+                            source:'Image2/hawaiian-pizza.jpg'
+                    MDBoxLayout:
+                        size_hint_y:None
+                        height:dp(25)
+                        MDLabel:
+                            text:'Hawai'
+                            font_style:"Body2"
+                            pos_hint:{"x":.5,"y":.5}
+
+                    MDBoxLayout:
+                        spacing:dp(8)
+                        MDRoundFlatIconButton:
+                            id:pizza3
+                            icon:"cart"
+                            text:"Add to cart"
+                            on_release:app.add_to_cart
+
+
+                CardItem:
+                    MDBoxLayout:
+                        size_hint_y:None
+                        height:dp(90)
+                        Image:
+                            source:'Image2/Peperonata.jpg'
+                    MDBoxLayout:
+                        size_hint_y:None
+                        height:dp(25)
+                        MDLabel:
+                            text:'Peperonata'
+                            font_style:"Body2"
+                            pos_hint:{"x":.5,"y":.5}
+
+                    MDBoxLayout:
+                        spacing:dp(8)
+                        MDRoundFlatIconButton:
+                            id: pizza4
+                            icon:"cart"
+                            text:"Add to cart"
+                            on_release:app.add_to_cart
+
+
+                CardItem:
+                    MDBoxLayout:
+                        size_hint_y:None
+                        height:dp(90)
+                        Image:
+                            source:'Image2/seafood-pizza.jpg'
+                    MDBoxLayout:
+                        size_hint_y:None
+                        height:dp(25)
+                        MDLabel:
+                            text:'SeaFood'
+                            font_style:"Body2"
+                            pos_hint:{"x":.5,"y":.5}
+                    MDBoxLayout:
+                        spacing:dp(8)
+                        MDRoundFlatIconButton:
+                            id: pizza5
+                            icon:"cart"
+                            text:"Add to cart"
+                            on_release:app.add_to_cart
+
+                CardItem:
+                    MDBoxLayout:
+                        size_hint_y:None
+                        height:dp(90)
+                        Image:
+                            source:'Image2/hawaiian-pizza.jpg'
+                    MDBoxLayout:
+                        size_hint_y:None
+                        height:dp(25)
+                        MDLabel:
+                            text:'Hawai'
+                            font_style:"Body2"
+                            pos_hint:{"x":.5,"y":.5}
+                    MDBoxLayout:
+                        spacing:dp(8)
+                        MDRoundFlatIconButton:
+                            id: pizza6
+                            icon:"cart"
+                            text:"Add to cart"
+                            on_release:app.add_to_cart
+
+
+
+
+
+
+
+
+

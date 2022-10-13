@@ -1,0 +1,186 @@
+MDScreen:
+    name:'MainScreen'
+
+
+    MDBottomNavigation:
+        id: bottomnav
+        #selected_color_background:
+
+
+        MDBottomNavigationItem:
+            name: 'screen 1'
+            text: 'Accueil'
+            icon: 'home'
+            icon_color: 'DarkBlue'
+
+            MDLabel:
+                text: "Le restaurant La Vieille Cave, situé au coeur de la station balnéaire de Banyuls sur Mer, vous propose une cuisine méditerranéenne et catalane. \n \n \n C’est dans l’atmosphère intimiste d’une cave voûtée aux lumières tamisées que Stéphane et son équipe, vous accueilleront. \n \n  \nVous aurez le choix, à la belle saison, de déjeuner ou de dîner à la fraîcheur des pierres ou, à l’extérieur, sous le charme des rues étroites et piétonnes. \n \nTous Nos plats sont a emporter et, ce, toute l'annee! \nNous sommes ravis de vous voir et de vous revoir vous regaler en notre sein! \n\n\n\n\n\n L' equipe de La Vieille Cave.."
+                font_name: 'Roboto-Italic.ttf'
+                text_color: 0, 0, 0, 1
+                bold: True
+                halign: 'center'
+
+            MDFloatLayout:
+                MDIconButton:
+                    id: facebook
+                    icon:'facebook'
+                    theme_text_color:'Custom'
+                    text_color: app.theme_cls.primary_color
+                    pos_hint: {"center_x": .5, "center_y": .1}
+                    on_release:
+                        import webbrowser
+                        webbrowser.open('https://m.facebook.com/lavieillecave66650/?ref=bookmarks')
+                MDLabel:
+                    text: "Suivez-Nous"
+                    pos_hint: {"center_x": .9, "center_y": .07}
+
+        MDBottomNavigationItem:
+
+            name: 'screen 2'
+            text: 'Menu'
+            icon:'chef-hat'
+            icon_color: 'Indigo'
+
+
+            MDSwiper:
+                id: swiper
+                #anchor:'right'
+                type_swipe: 'hand'
+                size_hint_y: None
+                height: root.height - toolbar.height - dp(20)
+                y: root.height - self.height- toolbar.height - dp(20)
+                width_mult: 1
+
+                MDSwiperItem:
+
+                    Image:
+                        source: "Image/2.png"
+
+                MDSwiperItem:
+                    Image:
+                        source: 'Image/3.png'
+
+                MDSwiperItem:
+                    Image:
+                        source: "Image/4.png"
+
+                MDSwiperItem:
+                    Image:
+                        source: "Image/5.png"
+
+
+                MDSwiperItem:
+                    Image:
+                        source: "Image/6.png"
+
+                MDSwiperItem:
+                    Image:
+                        source: "Image/7.png"
+
+                MDSwiperItem:
+                    Image:
+                        source: "Image/8.png"
+
+                MDSwiperItem:
+                    Image:
+                        source: "Image/9.png"
+
+                MDSwiperItem:
+                    Image:
+                        source: "Image/10.png"
+
+
+
+        MDBottomNavigationItem:
+
+            name: 'screen 4'
+            text: 'Map'
+            icon: 'google-maps'
+            icon_color: 'Indigo'
+            MapView:
+                lat: 42.48343
+                lon: 3.128874
+                zoom: 18
+                MapMarkerPopup:
+                    #source:"Image/IMG_1370.jpg"
+                    lat:42.48343
+                    lon:3.128874
+                    Button:
+                        text:'La Vieille Cave'
+                        pos_hint: {'center_x':.4, 'center_y':.7}
+                        on_release:
+                            text:'La Vieille Cave'
+                        MDIcon:
+                            icon:'silverware-fork-knife'
+                            font_size: 30
+
+
+
+    MDToolbar:
+        id: toolbar
+        title: 'La Vieille Cave'
+        anchor_title: 'center'
+        elevation: 10
+        pos_hint: {"top": 1}
+        right_action_items: [["anchor", lambda x: app.callback(x)]]
+        #on_action_button: app.callback(self.icon)
+        md_bg_color: get_color_from_hex("#faf0e6")
+        specific_text_color: get_color_from_hex("#4a4939")
+        left_action_items:
+            [['menu', lambda x: nav_drawer.set_state("open")]]
+
+
+
+    MDNavigationDrawer:
+        id: nav_drawer
+        orientation: 'vertical'
+        padding: '8dp'
+        spacing: '8dp'
+        md_bg_color: get_color_from_hex("#faf0e6")
+
+        AnchorLayout:
+            anchor_x: "left"
+            size_hint_y: None
+            height: avatar.height
+            Image:
+                id: avatar
+                source: "Image/IMG_1370.jpg"
+                size_hint: (1,1)
+                pos_hint: {'center_x':.5, 'center_y': .9}
+
+        MDLabel:
+            text: "Restaurant La Vieille Cave\n A Emporter..."
+            font_style: "Button"
+            size_hint_y: None
+            height: self.texture_size[1]
+            halign:'center'
+
+
+        ScrollView:
+            MDList:
+                id: md_list
+                OneLineAvatarListItem:
+                    text: 'Pizzas'
+                    on_press: root.manager.current='TakeAway'
+
+                    IconLeftWidget:
+                        icon:'pizza'
+                        #on_press: root.manager.current='TakeAway'
+
+                OneLineAvatarListItem:
+                    text: 'Pates'
+                    on_press: root.manager.current='TakeAway_pasta'
+
+                    IconLeftWidget:
+                        icon:'pasta'
+                        #on_press: root.manager.current= 'TakeAway_pasta'
+
+                OneLineAvatarListItem:
+                    text: 'Ma commande'
+                    #on_press:
+
+                    IconLeftWidget:
+                        icon:'cart'
+
+
+
